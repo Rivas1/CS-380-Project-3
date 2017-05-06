@@ -56,7 +56,7 @@ public class IPv4
 	{ this.destinationAddr = destinationAddr; }
 	public void setData ( String data )
 	{ this.data = data; }
-	
+
 	/* getters */
 	public int getHLen ()
 	{ return hLen; }
