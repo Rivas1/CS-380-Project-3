@@ -1,11 +1,11 @@
 public class IPv4
 {
-	final static int version;
+	int version;
 	int hLen;
 	int length;
 	int flags; 				// assume no fragmentation
 	int ttl; 				// assume TTL = 50
-	String protocol;		// assume TCP
+	int protocol;		// assume TCP
 	String checkSum; 		// stores checksum value
 	String sourceAddr;		// ip of my choice
 	String destinationAddr; // use ip address of the server
@@ -17,13 +17,13 @@ public class IPv4
 		length = -1;
 		flags = -1;
 		ttl = -1;
-		protocol = "";
+		protocol = -1;
 		checkSum = "";
 		sourceAddr = "";
 		destinationAddr = "";
 		data = "";
 	}
-	public IPv4 ( int hLen, int length, int flags, int ttl, String protocol,
+	public IPv4 ( int hLen, int length, int flags, int ttl, int protocol,
 				  String checkSum, String sourceAddr, String destinationAddr,
 				  String data )
 	{
@@ -38,6 +38,8 @@ public class IPv4
 		this.data = data;
 	}
 	/* setters */
+	public void setVersion ( int version )
+	{ this.version = version; }
 	public void setHlen ( int hLen )
 	{ this.hLen = hLen; }
 	public void setLength ( int length )
@@ -46,7 +48,7 @@ public class IPv4
 	{ this.flags = flags; }
 	public void setTTL ( int ttl )
 	{ this.ttl = ttl; }
-	public void setProtocol ( String protocol )
+	public void setProtocol ( int protocol )
 	{ this.protocol = protocol; }
 	public void setCheckSum ( String checkSum )
 	{ this.checkSum = checkSum; }
@@ -66,7 +68,7 @@ public class IPv4
 	{ return flags; }
 	public int getTTL ()
 	{ return ttl; }
-	public String getProtocol ()
+	public int getProtocol ()
 	{ return protocol; }
 	public String getCheckSum ()
 	{ return checkSum; }
